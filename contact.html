@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact / Request a Quote — ProWeld One</title>
+  <meta name="description" content="Request a quote from ProWeld One — precision welding and custom fabrication in Rancho Cucamonga, CA. Send prints and get a fast, honest number.">
+  <link rel="icon" href="https://static.wixstatic.com/media/abde9b_874b746463b147b8b6d8e430b4a4a8fe~mv2.png/v1/fill/w_32,h_32,lg_1/abde9b_874b746463b147b8b6d8e430b4a4a8fe~mv2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div class="seam" aria-hidden="true"><div class="seam__fill"></div><div class="seam__head"></div></div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="ProWeld One — home"><span class="logo-spark" aria-hidden="true"></span>PROWELD&nbsp;<b>ONE</b></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="capabilities.html">Capabilities</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="is-active">Contact</a>
+        <a href="contact.html" class="btn btn--fill">Start a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" style="min-height:44svh;">
+      <div class="page-hero__bg" style="background-image:url('https://static.wixstatic.com/media/abde9b_f23f876ec13d4e24a0990d2f8c12db0a~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_85,enc_auto/abde9b_f23f876ec13d4e24a0990d2f8c12db0a~mv2.jpg')" aria-hidden="true"></div>
+      <div class="container page-hero__inner">
+        <span class="eyebrow">Request for quote</span>
+        <h1 class="display">Send the print.<br>Get a number.</h1>
+        <p class="lede">Fastest path to a quote: drawings + material + quantity. We’ll flag risks and options before you commit a dollar.</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="container">
+        <div class="rfq-grid">
+          <form class="form" id="rfq-form" novalidate>
+            <div class="field">
+              <label for="f-name">Name <b>*</b></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-company">Company</label>
+              <input id="f-company" name="company" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="f-email">Email <b>*</b></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="f-service">Service needed</label>
+              <select id="f-service" name="service">
+                <option>Precision Welding</option>
+                <option>Build-to-Print Fabrication</option>
+                <option>Design &amp; Engineering</option>
+                <option>Laser Cutting</option>
+                <option>Sheet Metal Forming</option>
+                <option>CNC Machining</option>
+                <option>Not sure yet — help me scope it</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-material">Material</label>
+              <select id="f-material" name="material">
+                <option>Stainless</option>
+                <option>Aluminum</option>
+                <option>Mild steel</option>
+                <option>Chromoly</option>
+                <option>Exotic alloy</option>
+                <option>Mixed / other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-qty">Quantity</label>
+              <input id="f-qty" name="qty" type="text" placeholder="e.g. 1 proto + 50/mo">
+            </div>
+            <div class="field">
+              <label for="f-timeline">Timeline</label>
+              <select id="f-timeline" name="timeline">
+                <option>Standard</option>
+                <option>Expedite — need it fast</option>
+                <option>Flexible / planning ahead</option>
+              </select>
+            </div>
+            <div class="field field--full">
+              <label for="f-notes">Project notes</label>
+              <textarea id="f-notes" name="notes" placeholder="Tolerances, finish, certs, anything that keeps you up at night…"></textarea>
+            </div>
+            <div class="filedrop" tabindex="0" role="button" aria-label="Add drawing files">
+              <strong>Drop your drawings here</strong> or click to browse
+              <span class="mono">STEP · IGES · DXF · PDF — attach in the email this form opens (concept demo)</span>
+              <div class="filedrop__list" aria-live="polite"></div>
+            </div>
+            <input type="file" id="rfq-files" multiple accept=".step,.stp,.iges,.igs,.dxf,.pdf,.zip" hidden>
+            <div class="field--full">
+              <button type="submit" class="btn btn--fill">Send the RFQ <span class="btn-arrow">→</span></button>
+            </div>
+          </form>
+
+          <aside class="info-card" data-reveal>
+            <h3>The Shop</h3>
+            <div class="info-row">
+              <span class="k">Address</span>
+              <span class="v"><a href="https://maps.google.com/?q=8800+Onyx+Ave+Suite+D+Rancho+Cucamonga+CA+91730" target="_blank" rel="noopener">8800 Onyx Ave, Suite D<br>Rancho Cucamonga, CA 91730 ↗</a></span>
+            </div>
+            <div class="info-row">
+              <span class="k">Direct</span>
+              <span class="v big"><a href="tel:+19512648752">951-264-8752</a></span>
+            </div>
+            <div class="info-row">
+              <span class="k">Office</span>
+              <span class="v big"><a href="tel:+19094931010">909-493-1010</a></span>
+            </div>
+            <div class="info-row">
+              <span class="k">Email</span>
+              <span class="v"><a href="mailto:info@proweldone.com">info@proweldone.com</a></span>
+            </div>
+            <div class="info-row">
+              <span class="k">Response target</span>
+              <span class="v">Quotes within 24–48 business hours*</span>
+            </div>
+            <div class="info-row">
+              <span class="k">Note</span>
+              <span class="v" style="color:var(--ash); font-size:.85rem;">*Concept placeholder. Production version of this form should deliver files straight to the shop’s inbox (Formspree / Netlify Forms / custom endpoint) instead of opening an email client.</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="logo" href="index.html"><span class="logo-spark" aria-hidden="true"></span>PROWELD&nbsp;<b>ONE</b></a>
+          <p>Custom contract manufacturing focused on high-quality precision products for innovative industries.</p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="capabilities.html">Capabilities</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://www.proweldone.com/shop" target="_blank" rel="noopener">Merch Shop ↗</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <address>
+            <a href="https://maps.google.com/?q=8800+Onyx+Ave+Suite+D+Rancho+Cucamonga+CA+91730" target="_blank" rel="noopener">8800 Onyx Ave, Suite D<br>Rancho Cucamonga, CA 91730</a><br>
+            <a href="tel:+19512648752">951-264-8752</a> (direct)<br>
+            <a href="tel:+19094931010">909-493-1010</a> (office)<br>
+            <a href="mailto:info@proweldone.com">info@proweldone.com</a>
+          </address>
+        </div>
+        <div>
+          <h4>Follow the work</h4>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/proweld_one/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.facebook.com/ProWeld.one/" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.yelp.com/biz/pro-weld-one-rancho-cucamonga-3" target="_blank" rel="noopener">Yelp</a>
+            <a href="https://www.linkedin.com/in/proweld-one-2551bb230/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> ProWeld One — All rights reserved</span>
+        <span>Built to print. Built to last.</span>
+        <span>Concept by BrandOwl Creative</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
