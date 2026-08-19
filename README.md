@@ -42,7 +42,7 @@ Everything marked `*` on the site:
 - Weld standards (AWS D1.1 reference on capabilities + blueprint)
 - Response-time promise on Contact
 
-Images are currently **hotlinked from the live site's Wix CDN** (their own photos) — fine for a concept demo, but self-host them before production.
+Images are **self-hosted in `assets/img/`** (pulled from the shop's own photos on their previous site) — the site has no external dependencies except Google Fonts.
 
 ## Production punch-list (when the client says yes)
 
