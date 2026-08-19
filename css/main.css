@@ -43,6 +43,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* clip (not hidden) kills iOS left-right panning without creating a scroll container */
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -52,6 +55,7 @@ body {
   font-size: 16.5px;
   line-height: 1.65;
   overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -361,15 +365,25 @@ body::after {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 900;
-  transition: background .4s ease, border-color .4s ease, backdrop-filter .4s ease;
+  transition: border-color .4s ease;
   border-bottom: 1px solid transparent;
 }
-.header.is-scrolled {
+/* blur lives on a pseudo-element: backdrop-filter on .header itself would make it
+   the containing block for the fixed mobile-nav overlay (iOS anchors the menu to
+   the 64px header strip instead of the viewport) */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(9, 11, 15, .82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom-color: rgba(35, 43, 53, .8);
+  opacity: 0;
+  transition: opacity .4s ease;
 }
+.header.is-scrolled { border-bottom-color: rgba(35, 43, 53, .8); }
+.header.is-scrolled::before { opacity: 1; }
 .header__inner {
   display: flex;
   align-items: center;
@@ -439,24 +453,34 @@ body::after {
   .nav-toggle { display: block; }
   .nav {
     position: fixed;
-    inset: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
+    height: 100dvh;
     z-index: 1000;
     flex-direction: column;
-    justify-content: center;
-    gap: 1.4rem;
+    justify-content: flex-start;
+    align-items: center;
+    gap: clamp(.9rem, 2.6vh, 1.4rem);
+    padding: calc(env(safe-area-inset-top, 0px) + 84px) 24px calc(env(safe-area-inset-bottom, 0px) + 32px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     background: rgba(7, 9, 12, .97);
     opacity: 0;
     visibility: hidden;
     transition: opacity .4s ease, visibility 0s .4s;
   }
   .nav.is-open { opacity: 1; visibility: visible; transition: opacity .4s ease; }
+  /* margin-auto centering: looks centered when it fits, stays scrollable when it doesn't
+     (justify-content:center would make overflowing top items unreachable) */
+  .nav > a:first-child { margin-top: auto; }
+  .nav > .btn:last-child { margin-bottom: auto; }
   .nav a:not(.btn) {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 9vw, 3rem);
+    font-size: clamp(1.8rem, 7.5vw, 2.8rem);
     letter-spacing: .08em;
     color: var(--bone);
   }
-  .nav .btn { margin-top: 1.4rem; }
+  .nav .btn { margin-top: 1rem; }
+  .sec-num { right: 0; }
 }
 
 /* ---------- 05 · Hero ---------- */
@@ -579,9 +603,10 @@ body::after {
   padding-top: 1.2rem;
   border-top: 1px solid rgba(236, 233, 226, .14);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
+  gap: .6rem 1.5rem;
   font-family: var(--font-mono);
   font-size: .7rem;
   letter-spacing: .18em;
@@ -885,8 +910,9 @@ body::after {
 .cmp__caption {
   margin-top: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1rem;
+  gap: .5rem 1rem;
   font-family: var(--font-mono);
   font-size: .68rem;
   letter-spacing: .16em;
